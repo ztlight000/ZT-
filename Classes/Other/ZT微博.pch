@@ -1,0 +1,63 @@
+//
+//  ZT微博.pch
+//  ZT微博
+//
+//  Created by 张涛 on 16/2/28.
+//  Copyright © 2016年 apple. All rights reserved.
+//
+#ifdef __OBJC__
+
+#import "UIView+Extension.h"
+#import "UIImage+Image.h"
+#import "UIBarButtonItem+Item.h"
+#import "NSString+Emoji.h"
+#import "UITextView+Extension.h"
+
+#define ZTKeyWindow [UIApplication sharedApplication].keyWindow
+
+// ...表示宏定义的可变参数
+// __VA_ARGS__:表示函数里面的可变参数
+#ifdef DEBUG // 调试
+
+#define ZTLog(...) NSLog(__VA_ARGS__)
+
+#else // 发布
+
+#define ZTLog(...)
+
+#endif
+
+
+/*        cell            */
+#define ZTStatusCellMargin 10
+#define ZTNameFont [UIFont systemFontOfSize:13]
+#define ZTTimeFont [UIFont systemFontOfSize:12]
+#define ZTSourceFont ZTTimeFont
+#define ZTTextFont [UIFont systemFontOfSize:15]
+#define ZTScreenW [UIScreen mainScreen].bounds.size.width
+
+
+//授权使用参数
+#define ZTAuthorizeBaseUrl @"https://api.weibo.com/oauth2/authorize"
+#define ZTClient_id @"1909590639"
+#define ZTRedirect_uri @"http://www.baidu.com"
+#define ZTClient_secret @"c82462ec573dc634b4e1a993497bc7e7"
+
+
+// RGB颜色
+#define ZTColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 随机色
+#define ZTRandomColor ZTColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+// 通知中心
+#define ZTNotificationCenter [NSNotificationCenter defaultCenter]
+
+// 通知
+// 表情选中的通知
+#define ZTEmotionDidSelectNotification @"ZTEmotionDidSelectNotification"
+#define ZTSelectEmotionKey @"ZTSelectEmotionKey"
+// 删除文字的通知
+#define ZTEmotionDidDeleteNotification @"ZTEmotionDidDeleteNotification"
+
+#endif
